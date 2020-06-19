@@ -1,0 +1,24 @@
+name: CI_my_html_job
+env:
+  MY_HTML_NAME: "RN-GROUP_test"
+  MY_APPLICATIONS_NAME: "My_test"
+  MY_ENVIRMOMENT_NAME: "Flask-env"
+  PACKE_NAME : "Flask_app_${{github.sha}}.zip
+
+on:
+  push:
+    branches: 
+      - master
+ 
+
+jobs:
+  MY_CI:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    
+    - name: zip
+      run : zip -r ${{env.PACKE_NAME}} ./ -x *.git*
+     
